@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send WhatsApp Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ECE5DD; /* لون الشات في واتساب */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* خلفية شفافة قليلاً */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #075E54; /* لون النص الأخضر */
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            background: #fff;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #25D366; /* لون زر واتساب */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #128C7E; /* لون أغمق عند التمرير */
+        }
+    </style>
+</head>
+<body>
+    <h2>Send WhatsApp Message</h2>
+    <div class="container">
+        <div class="input-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" placeholder="Enter phone number">
+        </div>
+        <div class="input-group">
+            <label for="personName">Recipient's Name:</label>
+            <input type="text" id="personName" placeholder="Enter recipient's name">
+        </div>
+        <button id="sendMessage">Send Message</button>
+    </div>
+
+    <script>
+        document.getElementById('sendMessage').addEventListener('click', function () {
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const personName = document.getElementById('personName').value.trim();
+    
+            if (!phoneNumber) {
+                alert('Please enter the phone number.');
+                return;
+            }
+    
+            const formattedPhone = phoneNumber.startsWith('+2') ? phoneNumber : `+2${phoneNumber}`;
+            const message = personName ? `السلام عليكم ${personName} مع حضرتك محمود مسئول مبيعات 
+    الشريف للبلاستيك 
+    ا راي حضرتك يهمنا  في الاوردر الي اطلب من عندنا 
+    وهنبعت لحضرتك لينك جروب الواتس 
+    وهينزل عليه كل العروض 
+    https://chat.whatsapp.com/CmyPZ6CDGDm3sKTPAorHOE` : `السلام عليكم مع حضرتك محمود مسئول مبيعات 
+    الشريف للبلاستيك 
+    ا راي حضرتك يهمنا  في الاوردر الي اطلب من عندنا 
+    وهنبعت لحضرتك لينك جروب الواتس 
+    وهينزل عليه كل العروض 
+    https://chat.whatsapp.com/CmyPZ6CDGDm3sKTPAorHOE`
+            const link = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
+    
+            window.open(link, '_blank');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
